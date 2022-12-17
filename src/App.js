@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { lazy,Suspense } from "react";
+import { Routes, Route } from "react-router-dom";
 
-function App() {
+const Dashboard = lazy(() => import("./Layouts/Dashboard/Dashboard"));
+const Inbox = lazy(() => import("./pages/Inbox/Inbox"));
+const Create = lazy(() => import("./pages/Create/Create"));
+const Outgoing = lazy(() => import("./pages/Outgoing/Outgoing"));
+const Save = lazy(() => import("./pages/Save/Save"));
+const Cancel = lazy(() => import("./pages/Cancel/Cancel"));
+const NotFound = lazy(() => import("./pages/NotFound/NotFound"));
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Suspense fallback="loading">
+      <Routes>
+        <Route path="/" element={<Dashboard />}>
+          <Route path="create"  element={<Create />} />
+          <Route index element={<Inbox />} />
+          <Route path="outgoing"  element={<Outgoing />} />
+          <Route path="save" element={<Save />} />
+          <Route path="cancel"  element={<Cancel />} />
+        </Route>
+
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Suspense>
+
   );
 }
-
-export default App;
