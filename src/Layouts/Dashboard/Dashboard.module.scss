@@ -1,0 +1,168 @@
+@import "../../styles/mixins";
+
+:root{
+  --side-menu-blue-color: #0C2556;
+  --default-white-color: #ffffff;
+  --common-text-color: #303030;
+  --common-blue-color: #2B63C0;
+  --dark-color: #000000;
+  --input-text-color: #8C8C8C;
+}
+
+.container{
+  display: flex;
+
+  .side-menu{
+    width: 256px;
+    background-color: var(--side-menu-blue-color);
+    color: var(--default-white-color);
+    letter-spacing: 1px;
+    height: 100vh;
+    overflow-y: auto;
+    position: fixed;
+    @include common-scroll;
+
+    .logo-wrapper{
+      display: flex;
+      align-items: center;
+      margin: 24px 192px 24px 24px;
+      .text{
+        margin-bottom: 0;
+        margin-left: 8px;
+        @include common-text(15px, 18px, 700, var(--default-white-color));
+        text-transform: uppercase;
+      }
+    }
+
+    .nav{
+      padding: 0;
+      text-decoration: none;
+      a{
+        text-decoration: none;
+
+      }
+      .nav-item{
+        display: flex;
+        align-items: center;
+        list-style-type: none;
+        margin: 35px 24px;
+        cursor: pointer;
+
+        .img{
+          width: 24px;
+          height: 24px;
+        }
+
+        p{
+          margin-bottom: 0;
+          margin-left: 12px;
+          @include common-text(15px, 18px, 500, var(--default-white-color))
+        }
+      }
+      .nav-logo{
+        @extend .nav-item;
+        margin-top: 85px;
+        opacity: .7;
+        cursor: unset;
+      }
+    }
+  }
+
+  .wrapper{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    width: 100%;
+    left: 256px;
+
+    .header{
+      display: flex;
+      align-items: center;
+      padding: 24px 32px;
+      width: 84%;
+      justify-content: space-between;
+      box-shadow: 0 0 15px -3px var(--input-text-color);
+
+      @media(min-width: 1600px) {
+        width: 85%;
+      }
+
+      @media(min-width: 1700px) {
+        width: 86%;
+      }
+
+      @media(min-width: 1840px) {
+        width: 87%;
+      }
+
+      @media(min-width: 1950px) {
+        width: 88%;
+      }
+
+      @media(min-width: 2100px) {
+        width: 89%;
+      }
+
+
+      .left-side{
+        margin: 0;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        @include common-text(14px, 18px, 700, var(--common-text-color));
+
+        span{
+          @include common-text(14px, 18px, 400, var(--common-text-color))
+        }
+      }
+
+      .right-side{
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        margin-left: 257px;
+
+        .balance{
+          margin-bottom: 0;
+          margin-left: 10px;
+          margin-right: 38px;
+          @include common-text(14px, 16px, 400, var(--common-text-color));
+
+          span{
+            @include common-text(18px, 21px, 700, var(--common-blue-color))
+          }
+        }
+
+        .tariff-btn{
+          @include common-text(12px, 24px, 400, var(--default-white-color));
+          @include common-button(160px, 36px, none, 8px, var(--common-blue-color));
+          padding: 6px 21px;
+          margin-right: 56px;
+        }
+
+        .header-icons{
+          display: flex;
+          align-items: center;
+
+          img{
+            margin-right: 45px;
+          }
+
+          ion-icon{
+            @include common-icon(17px, var(--common-dark-color));
+          }
+        }
+      }
+
+      .hr{
+        margin: 0;
+      }
+
+    }
+
+    .content{
+      height: 100vh;
+      overflow-y: auto;
+      @include common-scroll;
+    }
+  }
+}
