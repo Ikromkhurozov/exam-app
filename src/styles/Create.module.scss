@@ -1,0 +1,405 @@
+@import "mixins";
+
+:root{
+  --default-white-color: #ffffff;
+  --common-text-color: #303030;
+  --common-blue-color: #2B63C0;
+}
+
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .create-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 1120px;
+    margin-bottom: 16px;
+
+    h2{
+      @include common-text(32px, 37px, 700, var(--common-text-color));
+    }
+
+    button{
+      padding: 12px 24px;
+      @include common-text(16px, 24px, 400, var(--default-white-color));
+      @include common-button(176px, 48px, none, 8px, var(--common-blue-color));
+    }
+  }
+
+  .create-document {
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    background-color: var(--default-white-color);
+    width: 1120px;
+    border: 1px solid #f3f3f3;
+    border-radius: 8px;
+    margin-bottom: 24px;
+
+    .select{
+      margin-bottom: 24px;
+      .input-wrapper {
+        display: flex;
+        flex-direction: column;
+
+        label {
+          margin-bottom: 0.5rem;
+          @include common-text(16px, 24px, 500, var(--label-color));
+        }
+
+        input {
+          padding: 12px;
+          @include common-text(16px, 24px, 400, #8C8C8C);
+          @include common-input(470px, 48px, 1px solid #d9d9d9, 8px, inherit);
+
+          &:focus {
+            border-color: var(--common-blue-color);
+          }
+
+          &:nth-child(-n + 2) {
+            margin-bottom: 24px;
+          }
+        }
+
+        .select-button {
+          label {
+            margin-bottom: 0.5rem;
+            @include common-text(16px, 24px, 500, var(--label-color));
+          }
+
+          padding: 0.6rem 0.4rem;
+          @include common-input(520px, 48px, 1px solid #d9d9d9, 8px, inherit);
+          @include common-text(16px, 20px, 400, #8C8C8C);
+
+          .option {
+            @include common-text(16px, 20px, 400, #8C8C8C);
+            border: none;
+          }
+
+          &:focus {
+            border-color: var(--common-blue-color);
+          }
+        }
+      }
+    }
+    .input{
+      display: grid;
+      grid-template-columns: 470px 470px;
+
+      .input-wrapper{
+        display: flex;
+        flex-direction: column;
+        margin-left: 75px;
+
+        label {
+          margin-bottom: 0.5rem;
+          @include common-text(16px, 24px, 500, var(--label-color));
+        }
+
+        input {
+          padding: 12px;
+          margin-bottom: 24px;
+          @include common-text(16px, 24px, 400, #8C8C8C);
+          @include common-input(450px, 48px, 1px solid #d9d9d9, 8px, inherit);
+
+          &:focus {
+            border-color: var(--common-blue-color);
+          }
+        }
+      }
+    }
+  }
+
+  .information{
+    display: flex;
+    justify-content: space-between;
+    padding: 24px;
+    background-color: var(--default-white-color);
+    width: 1120px;
+    border: 1px solid #f3f3f3;
+    border-radius: 8px;
+    margin-bottom: 25px;
+
+
+    .left{
+      h2{
+        @include common-text(22px, 25px, 700, var(--common-text-color));
+        margin-bottom: 24px;
+      }
+
+      .select{
+        margin-bottom: 24px;
+        .input-wrapper {
+          display: flex;
+          flex-direction: column;
+
+          label {
+            margin-bottom: 0.5rem;
+            @include common-text(16px, 24px, 500, var(--label-color));
+          }
+
+          input {
+            padding: 12px;
+            @include common-text(16px, 24px, 400, #8C8C8C);
+            @include common-input(470px, 48px, 1px solid #d9d9d9, 8px, inherit);
+
+            &:focus {
+              border-color: var(--common-blue-color);
+            }
+
+            &:nth-child(-n + 2) {
+              margin-bottom: 24px;
+            }
+          }
+
+          .select-button {
+            label {
+              margin-bottom: 0.5rem;
+              @include common-text(16px, 24px, 500, var(--label-color));
+            }
+
+            padding: 0.6rem 0.4rem;
+            @include common-input(520px, 48px, 1px solid #d9d9d9, 8px, inherit);
+            @include common-text(16px, 20px, 400, #8C8C8C);
+
+            .option {
+              @include common-text(16px, 20px, 400, #8C8C8C);
+              border: none;
+            }
+
+            &:focus {
+              border-color: var(--common-blue-color);
+            }
+          }
+        }
+      }
+
+      .min-input{
+        display: flex;
+
+        .first{
+          margin-right: 24px;
+        }
+      }
+    }
+
+    .right{
+
+      h2{
+        @include common-text(22px, 25px, 700, var(--common-text-color));
+        margin-bottom: 24px;
+      }
+
+      .input{
+        .first{
+          display: flex;
+          align-items: center;
+          .input-wrapper{
+            display: flex;
+            flex-direction: column;
+
+            label {
+              margin-bottom: 0.5rem;
+              @include common-text(16px, 24px, 500, var(--label-color));
+
+              span{
+                color: #FE346E;
+              }
+            }
+
+            input {
+              padding: 12px;
+              margin-bottom: 24px;
+              @include common-text(16px, 24px, 400, #8C8C8C);
+              @include common-input(248px, 48px, 1px solid #FE346E, 8px, inherit);
+
+              &::placeholder{
+                color: #FE346E;
+              }
+            }
+          }
+        }
+
+        .radio{
+          margin-left: 34px;
+          p{
+            @include common-text(14px, 24px, 400, #8c8c8c);
+            margin-bottom: 0;
+
+            img{
+              width: 54px;
+              height: 20px;
+            }
+          }
+        }
+
+        .min-input{
+          display: flex;
+          .first{
+            margin-right: 24px;
+          }
+        }
+      }
+    }
+  }
+
+  .table-wrapper{
+    padding: 24px;
+    background-color: var(--default-white-color);
+    width: 1120px;
+    border: 1px solid #f3f3f3;
+    border-radius: 8px;
+    margin-bottom: 24px;
+
+    .table-header{
+      display: flex;
+      p{
+        display: flex;
+        align-items: center;
+        @include common-text(12px, 24px, 400, #303030);
+        cursor: pointer;
+
+        &:not(:last-child){
+          margin-right: 28px;
+        }
+        ion-icon{
+         @include common-icon(16px, #303030);
+         margin-right: 8px;
+         border-bottom: 3px solid #303030;
+       }
+      }
+    }
+
+    .scroll{
+      width: 100%;
+      height: 5px;
+      background-color: #EBEBEB;
+      border-radius: 8px;
+      margin-top: 16px;
+
+      p{
+        height: 5px;
+        width: 320px;
+        background-color: #2B63C0;
+        border-radius: 8px;
+
+      }
+    }
+
+    .table-footer{
+      display: flex;
+      justify-content: space-between;
+      margin-top: 16px;
+      .all{
+        @include common-text(18px, 21px, 500, #131313);
+        margin-bottom: 0;
+      }
+      .add{
+        @include common-text(16px, 24px, 400, #2B63C0);
+        margin-bottom: 0;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .attorney{
+    padding: 24px;
+    background-color: var(--default-white-color);
+    width: 1120px;
+    border: 1px solid #f3f3f3;
+    border-radius: 8px;
+    margin-bottom: 24px;
+
+    .attorney-header{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      h2{
+        @include common-text(28px, 32px, 700, #303030);
+      }
+
+      .input-wrapper {
+        input {
+          padding: 12px;
+          @include common-text(16px, 24px, 400, #8C8C8C);
+          @include common-input(470px, 48px, 1px solid #d9d9d9, 8px, inherit);
+
+          &:focus {
+            border-color: var(--common-blue-color);
+          }
+        }
+
+        .select-button {
+          label {
+            margin-bottom: 0.5rem;
+            @include common-text(16px, 24px, 500, var(--label-color));
+          }
+
+          padding: 0.6rem 0.4rem;
+          @include common-input(710px, 48px, 1px solid #d9d9d9, 8px, inherit);
+          @include common-text(16px, 20px, 400, #8C8C8C);
+
+          .option {
+            @include common-text(16px, 20px, 400, #8C8C8C);
+            border: none;
+          }
+
+          &:focus {
+            border-color: var(--common-blue-color);
+          }
+        }
+      }
+    }
+
+    .attorney-content{
+      display: flex;
+      justify-content: space-between;
+      margin-top: 48px;
+    }
+
+  }
+
+  .create-footer{
+    display: flex;
+    justify-content: space-between;
+    width: 1120px;
+    margin-bottom: 50px;
+
+    .left{
+      .cancel{
+        padding: 12px 24px;
+        @include common-text(16px, 24px, 400, #fff);
+        @include common-button(150px, 48px, none, 8px, #FE346E);
+
+        img{
+          margin-right: 10px;
+          margin-bottom: 4px;
+        }
+      }
+
+      .check{
+        @extend .cancel;
+        @include common-button(224px, 48px, none, 8px, var(--common-blue-color));
+        margin-left: 16px;
+      }
+    }
+
+    .right{
+      .save{
+        padding: 12px 24px;
+        @include common-text(16px, 24px, 400, #fff);
+        @include common-button(128px, 48px, none, 8px, var(--common-blue-color));
+      }
+
+      .follow{
+        @extend .save;
+        margin-left: 16px;
+      }
+    }
+  }
+}

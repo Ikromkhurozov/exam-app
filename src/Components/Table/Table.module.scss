@@ -1,0 +1,137 @@
+@import "../../styles/mixins";
+
+:root{
+  --default-white-color: #ffffff;
+  --common-text-color: #303030;
+  --common-red-color: #FE346E;
+  --common-yellow-color: #FFA41D;
+  --trash-status-color: #D9D9D9;
+  --common-blue-color: #2B63C0;
+  --common-green-color: #0FBE7B;
+  --dashboard-back-color: #F8FAFC;
+  --input-text-color: #8C8C8C;
+}
+
+.container{
+  margin: 32px 32px 32px 32px;
+  background-color: var(--default-white-color);
+  padding: 24px;
+  width: 1120px;
+  border: 1px solid #f3f3f3;
+  border-radius: 8px;
+
+  .table-header{
+    display: flex;
+    justify-content: space-between;
+
+    .left{
+      display: flex;
+      align-items: center;
+      position: relative;
+
+      h3{
+        @include common-text(22px, 30px, 700, var(--common-text-color));
+        margin-bottom: 0;
+        margin-right: 45px;
+      }
+
+      p{
+        margin-bottom: 0;
+        @include common-text(13px, 15px, 400, var(--common-text-color));
+
+        &:not(:last-child){
+          margin-right: 35px;
+        }
+      }
+
+      .red::before{
+        content: "";
+        width: 8px;
+        height: 8px;
+        right: 360px;
+        top: 11px;
+        position: absolute;
+        border-radius: 50%;
+        background-color: var(--common-red-color);
+      }
+      .green::before{
+        @extend .red;
+        background-color: #0FBE7B;
+        right: 270px;
+
+      }
+      .yellow::before{
+        @extend .red;
+        background-color: var(--common-yellow-color);
+        right: 170px;
+
+      }
+      .grey::before{
+        @extend .red;
+        background-color: var(--trash-status-color);
+        right: 65px;
+      }
+    }
+
+    .right{
+      display: flex;
+      button:first-child{
+        margin-right: 12px;
+        @include common-text(12px, 24px, 400, var(--default-white-color));
+        @include common-button(140px, 30px, none, 8px, var(--common-blue-color));
+      }
+
+      button:last-child{
+        @include common-text(12px, 24px, 400, var(--default-white-color));
+        @include common-button(140px, 30px, none, 8px, var(--common-blue-color));
+        img{
+          margin-right: 6px;
+        }
+      }
+    }
+  }
+
+  .table{
+    table {
+      thead {
+        height: 52px;
+        text-align: center;
+        background-color: #fff;
+
+        tr th {
+          color: #303030;
+          font-weight: 700;
+          line-height: 10px;
+          font-size: 12px;
+          text-align: center;
+        }
+      }
+
+      tbody {
+        tr td {
+          font-weight: 400;
+          font-size: 12px;
+          text-align: center;
+          line-height: 14px;
+          border-top: 1px solid #f3f3f3;
+          padding: 8px 0;
+          color: #303030;
+        }
+        tr{
+          &:nth-child(odd) {
+            background-color: #F8FAFC;
+          }
+        }
+      }
+    }
+  }
+}
+
+.color{
+    background-color: #0FBE7B;
+    width: 10px;
+    height: 10px;
+    margin-bottom: 3px;
+    margin-left: 20px;
+    border-radius: 50%;
+}

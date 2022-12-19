@@ -1,5 +1,183 @@
 @import "mixins";
 
+:root{
+  --default-white-color: #ffffff;
+  --common-text-color: #303030;
+  --common-red-color: #FE346E;
+  --common-yellow-color: #FFA41D;
+  --trash-status-color: #D9D9D9;
+  --common-blue-color: #2B63C0;
+  --dashboard-back-color: #F8FAFC;
+  --input-text-color: #8C8C8C;
+}
+
 .container{
-  padding: 10px 10px;
+  .title{
+    margin: 0 0 32px 32px;
+    @include common-text(32px, 37px, 600, var(--common-text-color))
+  }
+
+  .tapbar{
+    display: flex;
+    margin-left: 32px;
+    border-radius:100px;
+
+    p:first-child{
+      border-radius: 10px 0 0 10px;
+      border-bottom: 2px solid var(--common-blue-color);
+      color: var(--common-blue-color);
+    }
+
+    p:last-child{
+      border-radius: 0 8px 8px 0;
+    }
+
+    p{
+      padding: 12px 40px;
+      margin: 0;
+      cursor: pointer;
+      background-color: var(--default-white-color);
+      border: 1px solid #f3f3f3;
+      @include common-text(16px, 24px, 400, var(--common-text-color));
+    }
+  }
+
+  .inbox-footer{
+    display: flex;
+    flex-direction: column;
+
+    .inbox-sort{
+      display: flex;
+      margin: 16px 32px;
+      width: 1120px;
+
+      .check{
+        display: flex;
+        align-items: center;
+        padding: 12px 24px;
+        margin-right: 16px;
+        @include common-text(16px, 24px, 400, var(--default-white-color));
+        @include common-button(160px, 48px, none, 8px, var(--common-blue-color));
+
+        img{
+          margin-right: 10px;
+        }
+      }
+
+      .cancel{
+        @extend .check;
+        @include common-button(160px, 48px, none, 8px, var(--common-red-color));
+        margin-right: 184px;
+      }
+
+      .footer-filter{
+        display: flex;
+        margin-bottom: 24px;
+
+        .select{
+          p{
+            @include common-text(16px, 24px, 400, var(--common-text-color ));
+            margin-right: 12px;
+            margin-bottom: 0;
+          }
+
+          display: flex;
+          align-items: center;
+          padding: 12px 12px;
+          @include common-button(180px, 48px, 1px solid #f3f3f3, 8px, var(--default-white-color));
+
+          select{
+            border: none;
+            background-color: var(--default-white-color);
+            color: #2B63C0;
+            outline: none;
+            cursor: pointer;
+          }
+        }
+
+        .sort{
+          display: flex;
+          margin-left: 16px;
+          @include common-text(16px, 24px, 400, var(--common-text-color));
+
+          p{
+            display: flex;
+            border: 1px solid #f3f3f3;
+            height: 48px;
+            padding: 12px 40px;
+            background-color: var(--default-white-color);
+            margin: 0;
+            cursor: pointer;
+
+            ion-icon{
+              @include common-icon(20px, var(--common-blue-color));
+              margin: 3px 0 0 10px;
+            }
+          }
+
+          p:first-child{
+            border-radius: 8px 0 0 8px;
+            width: 250px;
+          }
+
+          p:last-child{
+            border-radius: 0 8px 8px 0;
+          }
+        }
+      }
+    }
+
+    .pagination{
+      display: flex;
+      justify-content: flex-end;
+      width: 1120px;
+      margin: 0 32px 50px 32px;
+
+      .back{
+        display: flex;
+        align-items: center;
+        padding: 8px 16px;
+        margin-right: 32px;
+
+        @include common-button(auto, 40px, none, 8px, var(--common-blue-color));
+        @include common-text(14px, 15px, 400, var(--default-white-color));
+
+        ion-icon{
+          @include common-icon(16px, var(--default-white-color));
+        }
+      }
+
+      .pages{
+        display: flex;
+        align-items: center;
+      }
+
+      p{
+        display: flex;
+        align-items: center;
+        padding: 8px;
+        background-color: var(--default-white-color);
+        border-radius: 8px;
+        height: 32px;
+        margin-bottom: 0;
+        @include common-text(14px, 15px, 400, var(--common-text-color));
+
+        &:not(:last-child){
+          margin-right: 12px;
+        }
+      }
+
+      .selected-number{
+        color: #2B63C0;
+      }
+
+
+      .next{
+        @extend .back;
+        margin-left: 32px;
+        margin-right: 0;
+      }
+    }
+
+  }
 }

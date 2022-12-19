@@ -1,0 +1,218 @@
+@import "mixins";
+
+:root{
+  --default-white-color: #ffffff;
+  --common-text-color: #303030;
+  --common-blue-color: #2B63C0;
+  --common-green-color: #0FBE7B;
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .navigation{
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+
+    .name{
+      @include common-text(12px, 14px, 400, #8c8c8c);
+      margin: 0 8px 0 0;
+      cursor: pointer;
+    }
+
+    ion-icon{
+      color: #8c8c8c;
+    }
+
+    .info{
+      @include common-text(12px, 14px, 400, #2B63C0);
+      margin: 0 0 0 8px;
+    }
+  }
+
+  .cards{
+    display: flex;
+
+    @media(max-width: 1400px) {
+      flex-direction: column;
+    }
+    .left{
+      padding: 24px;
+      background-color: var(--default-white-color);
+      width: 640px;
+      border: 1px solid #f3f3f3;
+      border-radius: 8px;
+      margin-bottom: 24px;
+
+      @media(max-width: 800px) {
+        width: 100%;
+      }
+
+      header{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        @media(max-width: 750px) {
+          flex-direction: column;
+        }
+        h2{
+          @include common-text(22px, 30px, 700, var(--common-text-color));
+          margin: 0;
+        }
+
+        p{
+          @include common-text(14px, 24px, 400, var(--common-blue-color));
+          cursor: pointer;
+          margin: 0;
+        }
+      }
+
+      .invoice-content{
+        .number{
+          margin-bottom: 0;
+          @include common-text(16px, 18px, 700, var(--common-text-color));
+        }
+        .mfo{
+          @include common-text(14px, 18px, 400, var(--common-green-color));
+        }
+        .info{
+          display: flex;
+          margin-bottom: 8px;
+
+          .send{
+            @include common-text(16px, 24px, 500, #333333);
+            margin-bottom: 0;
+            margin-right: 12px;
+          }
+
+          .content{
+            @include common-text(16px, 24px, 400, var(--common-text-color));
+            margin-bottom: 0;
+          }
+        }
+      }
+
+      .card-footer{
+        display: flex;
+        justify-content: space-between;
+
+        @media(max-width: 810px) {
+          flex-direction: column;
+
+        }
+        .footer-left{
+          display: flex;
+          align-items: center;
+
+          .date{
+            margin-left: 73px;
+          }
+
+          &:first-child{
+            @include common-text(16px, 24px, 500, #333);
+          }
+        }
+
+        .footer-right{
+          button{
+            @include common-text(12px, 24px, 400, #fff);
+            @include common-button(110px, 30px, none, 8px, var(--common-blue-color));
+          }
+          .print{
+            margin-left: 8px;
+          }
+        }
+      }
+    }
+
+    .right{
+      padding: 24px;
+      background-color: var(--default-white-color);
+      width: 448px;
+      margin-left: 32px;
+      border: 1px solid #f3f3f3;
+      border-radius: 8px;
+      margin-bottom: 24px;
+
+      @media(max-width: 1400px){
+        margin-left: 0;
+      }
+
+      header{
+        display: flex;
+        justify-content: space-between;
+
+        @media(max-width: 750px) {
+          flex-direction: column;
+        }
+
+        h2{
+          @include common-text(22px, 30px, 700, var(--common-text-color));
+          margin-bottom: 0;
+        }
+        p{
+          @include common-text(14px, 24px, 400, var(--common-blue-color));
+          img{
+            margin-right: 6px;
+          }
+          margin-bottom: 0;
+        }
+      }
+
+      .content{
+        @include common-text(14px, 30px, 700, #FFA41D);
+      }
+
+      .btns{
+        display: flex;
+        align-items: center;
+        margin-top: 85px;
+        .follow{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          @include common-button(162px, 48px, none, 8px, #0FBE7B);
+          @include common-text(16px, 24px, 400, #fff);
+          img{
+            margin-right: 10px;
+            width: 20px;
+            height: 20px;
+          }
+        }
+        .cancel{
+          @include common-button(162px, 48px, none, 8px, #FE346E);
+          margin-left: 12px;
+          @include common-text(16px, 24px, 400, #fff);
+          img{
+            margin-right: 10px;
+            width: 20px;
+            height: 20px;
+          }
+        }
+      }
+    }
+  }
+
+  .image-container{
+    padding: 24px;
+    background-color: var(--default-white-color);
+    width: 1120px;
+    border: 1px solid #f3f3f3;
+    border-radius: 8px;
+    margin-bottom: 24px;
+    box-shadow: 0 0 10px 3px #f3f3f3;
+
+    @media(max-width: 1150px) {
+      width: 100%;
+    }
+
+    img{
+      width: 100%;
+      height: auto;
+    }
+  }
+}

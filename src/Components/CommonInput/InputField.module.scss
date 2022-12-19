@@ -1,0 +1,44 @@
+@import "../../styles/mixins";
+
+.form{
+  display: flex;
+  flex-direction: column;
+
+  label {
+    margin-bottom: 0.5rem;
+    @include common-text(16px, 24px, 500, var(--label-color));
+  }
+
+  input {
+    padding: 12px;
+    margin-bottom: 24px;
+    @include common-text(16px, 24px, 400, #8C8C8C);
+    @include common-input(520px, 48px, 1px solid #d9d9d9, 8px, inherit);
+
+    &:focus {
+      border-color: var(--common-blue-color);
+    }
+  }
+}
+
+.form-wrapper{
+  display: flex;
+  flex-direction: column;
+
+  label {
+    margin-bottom: 0.5rem;
+    @include common-text(16px, 24px, 500, var(--label-color));
+  }
+
+  input {
+    padding: 12px;
+    margin-bottom: 24px;
+    @include common-text(16px, 24px, 400, #8C8C8C);
+    @include common-input(248px, 48px, 1px solid #d9d9d9, 8px, inherit);
+
+    &:focus {
+      border-color: var(--common-blue-color);
+    }
+  }
+}
+

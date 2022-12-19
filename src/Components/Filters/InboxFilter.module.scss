@@ -1,0 +1,96 @@
+@import "../../styles/mixins";
+
+:root{
+  --side-menu-blue-color: #0C2556;
+  --default-white-color: #ffffff;
+  --common-text-color: #303030;
+  --common-blue-color: #2B63C0;
+  --dark-color: #000000;
+  --input-text-color: #d9d9d9;
+  --label-color: #333333;
+}
+
+.container{
+  margin: 16px 32px 16px 32px;
+  background-color: var(--default-white-color);
+  width: 1120px;
+  border: 1px solid #f3f3f3;
+  border-radius: 5px;
+
+  .filter-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 24px 16px 24px;
+
+    p:first-child{
+      @include common-text(22px,30px, 700, var(--common-text-color));
+      margin: 0;
+    }
+    p:last-child{
+      @include common-text(14px,24px, 400, var(--common-blue-color));
+      margin: 0;
+      cursor: pointer;
+    }
+  }
+
+  .filter-content {
+    display: flex;
+    margin: 0 24px 24px 24px;
+
+    .input-wrapper{
+      display: flex;
+      flex-direction: column;
+
+      &:not(:last-child){
+        margin-right: 16px;
+      }
+
+      label {
+        margin-bottom: 0.5rem;
+        @include common-text(16px, 24px, 500, var(--label-color));
+      }
+
+      input {
+        padding: 12px;
+        @include common-text(16px, 24px, 400, #8C8C8C);
+        @include common-input(256px, 48px, 1px solid #d9d9d9, 8px, inherit);
+
+        &:focus {
+          border-color: var(--common-blue-color);
+        }
+      }
+
+      .select-button {
+        label {
+          margin-bottom: 0.5rem;
+          @include common-text(16px, 24px, 500, var(--label-color));
+        }
+        padding: 0.6rem 0.4rem;
+        @include common-input(256px, 48px, 1px solid #d9d9d9, 8px, inherit);
+        @include common-text(16px, 20px, 400, #8C8C8C);
+
+        .option {
+          @include common-text(16px, 20px, 400, #8C8C8C);
+          border: none;
+        }
+
+        &:focus {
+          border-color: var(--common-blue-color);
+        }
+      }
+    }
+
+    .date-wrapper{
+      @extend .input-wrapper;
+
+      input {
+        padding: 12px;
+        @include common-text(16px, 24px, 400, #8C8C8C);
+        @include common-input(120px, 48px, 1px solid #d9d9d9, 8px, inherit);
+      }
+
+    }
+
+  }
+}

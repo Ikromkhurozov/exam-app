@@ -1,7 +1,6 @@
 import React from 'react';
 import { NavLink, Outlet } from "react-router-dom";
 
-
 import Logo from "../../assets/sidebar/logo.svg";
 import Add from "../../assets/sidebar/add-icon.svg"
 import Down from "../../assets/sidebar/arrow-downward.svg"
@@ -19,6 +18,7 @@ import SupportIcon from "../../assets/sidebar/support-icon.svg"
 import styles from "./Dashboard.module.scss"
 
 export default function Dashboard() {
+
   return (
     <div className={`${styles.container} light`}>
       <div className={styles["side-menu"]}>
@@ -28,11 +28,16 @@ export default function Dashboard() {
         </div>
         <hr className={styles.hr}/>
         <ul className={styles.nav}>
-          <NavLink to="/create"><li className={styles["nav-item"]}>
-            <img alt="image" className={styles.img} src={Add}/><p>Создать</p></li></NavLink>
-          <NavLink to="/inbox"><li className={styles["nav-item"]}>
-            <img alt="image" className={styles.img} src={Down}/><p>Входящие (2)</p>
-          </li></NavLink>
+          <NavLink to="/create">
+            <li className={styles["nav-item"]}>
+              <img alt="image" className={styles.img} src={Add}/><p>Создать</p>
+            </li>
+          </NavLink>
+          <NavLink to="/">
+            <li className={styles["nav-item"]}>
+              <img alt="image" className={styles.img} src={Down}/><p>Входящие (2)</p>
+            </li>
+          </NavLink>
           <li className={styles["nav-item"]}>
             <img alt="image" className={styles.img} src={Upp}/><p>Исходящие (3)</p>
           </li>
