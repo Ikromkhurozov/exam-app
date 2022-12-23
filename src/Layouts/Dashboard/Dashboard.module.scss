@@ -38,16 +38,34 @@
     .nav{
       padding: 0;
       text-decoration: none;
+
       a{
         text-decoration: none;
-
       }
+
+      .active {
+
+        li {
+          background-color: #273057;
+          &::before{
+            content: "";
+            position: absolute;
+            width: 10px;
+            background-color: white;
+            left: 0;
+            height: 56px;
+          }
+        }
+      }
+
       .nav-item{
         display: flex;
         align-items: center;
         list-style-type: none;
-        margin: 35px 24px;
+        padding: 0 24px;
         cursor: pointer;
+        text-align: center;
+        height: 56px;
 
         .img{
           width: 24px;

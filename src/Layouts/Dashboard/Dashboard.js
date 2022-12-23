@@ -19,6 +19,10 @@ import styles from "./Dashboard.module.scss"
 
 export default function Dashboard() {
 
+
+  const navStyle = ({isActive}) => isActive ? styles.active : console.log("isactive", isActive);
+
+
   return (
     <div className={`${styles.container} light`}>
       <div className={styles["side-menu"]}>
@@ -28,7 +32,7 @@ export default function Dashboard() {
         </div>
         <hr className={styles.hr}/>
         <ul className={styles.nav}>
-          <NavLink to="/create">
+          <NavLink to="/create" className={navStyle}>
             <li className={styles["nav-item"]}>
               <img alt="image" className={styles.img} src={Add}/><p>Создать</p>
             </li>
